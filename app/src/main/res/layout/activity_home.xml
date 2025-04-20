@@ -12,7 +12,7 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sonali Fasal"
+        android:text="Smart Agriculture"
         android:textSize="26sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
