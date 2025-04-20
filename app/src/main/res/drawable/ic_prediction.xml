@@ -1,0 +1,25 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="#FFFFFF">
+
+    <!-- Grid Base -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M3,3v18h18"/>
+
+    <!-- Trend Line -->
+    <path
+        android:fillColor="@android:color/white"
+        android:strokeWidth="2"
+        android:strokeColor="@android:color/white"
+        android:pathData="M5,17L10,10L15,14L19,7"/>
+
+    <!-- Trend Points -->
+    <circle android:fillColor="@android:color/white" android:cx="5" android:cy="17" android:r="1.5"/>
+    <circle android:fillColor="@android:color/white" android:cx="10" android:cy="10" android:r="1.5"/>
+    <circle android:fillColor="@android:color/white" android:cx="15" android:cy="14" android:r="1.5"/>
+    <circle android:fillColor="@android:color/white" android:cx="19" android:cy="7" android:r="1.5"/>
+</vector>
