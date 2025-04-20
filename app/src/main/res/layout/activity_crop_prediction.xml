@@ -32,75 +32,60 @@
         android:textColor="@color/primaryText"
         android:layout_marginBottom="8dp" />
 
-    <!-- Input Fields -->
-    <EditText
-        android:id="@+id/etSoilType"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Soil Type (e.g., loamy)"
-        android:background="@drawable/input_field_bg"
-        android:paddingStart="12dp"
-        android:layout_marginBottom="12dp" />
-
-    <EditText
-        android:id="@+id/etWeather"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Weather (e.g., Sunny)"
-        android:background="@drawable/input_field_bg"
-        android:paddingStart="12dp"
-        android:layout_marginBottom="12dp" />
-
-    <EditText
-        android:id="@+id/etIrrigation"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Irrigation (e.g., Drip)"
-        android:background="@drawable/input_field_bg"
-        android:paddingStart="12dp"
-        android:layout_marginBottom="12dp" />
-
-    <EditText
-        android:id="@+id/etPlantingDate"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="Planting Date (DD/MM)"
-        android:background="@drawable/input_field_bg"
-        android:paddingStart="12dp"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Generate Button -->
-    <Button
-        android:id="@+id/btnGeneratePrediction"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="GENERATE PREDICTION"
-        android:textColor="@android:color/white"
-        android:background="@color/olive"
-        android:textAllCaps="false"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Prediction Results -->
-    <ScrollView
+    <!-- Container for inputs to take most space -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/etSoilType"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="50dp"
+            android:hint="Soil Type (e.g., loamy)"
+            android:background="@drawable/input_field_bg"
+            android:paddingStart="12dp"
+            android:layout_marginBottom="12dp" />
 
-            <!-- Corn Card -->
-            <include layout="@layout/item_prediction_card" />
+        <EditText
+            android:id="@+id/etWeather"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Weather (e.g., Sunny)"
+            android:background="@drawable/input_field_bg"
+            android:paddingStart="12dp"
+            android:layout_marginBottom="12dp" />
 
-            <!-- Wheat Card -->
-            <include layout="@layout/item_prediction_card" />
+        <EditText
+            android:id="@+id/etIrrigation"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Irrigation (e.g., Drip)"
+            android:background="@drawable/input_field_bg"
+            android:paddingStart="12dp"
+            android:layout_marginBottom="12dp" />
 
-            <!-- Soybean Card -->
-            <include layout="@layout/item_prediction_card" />
-        </LinearLayout>
-    </ScrollView>
+        <EditText
+            android:id="@+id/etPlantingDate"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Planting Date (DD/MM)"
+            android:background="@drawable/input_field_bg"
+            android:paddingStart="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Generate Button -->
+        <Button
+            android:id="@+id/btnGeneratePrediction"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="GENERATE PREDICTION"
+            android:textColor="@android:color/white"
+            android:background="@color/olive"
+            android:textAllCaps="false"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
