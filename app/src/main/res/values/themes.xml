@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base theme -->
+    <style name="Base.Theme.AGRI" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Global font -->
+        <item name="android:fontFamily">@font/poppins</item>
+
+        <!-- App colors -->
+        <item name="colorPrimary">@color/buttonColor</item>
+        <item name="colorPrimaryVariant">@color/primaryText</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:textColor">@color/primaryText</item>
+
+        <!-- Optional: Customize other elements if needed -->
+        <!-- <item name="colorSecondary">@color/secondaryText</item> -->
+        <!-- <item name="android:buttonStyle">@style/YourCustomButtonStyle</item> -->
+    </style>
+
+    <!-- Final app theme -->
+    <style name="Theme.AGRI" parent="Base.Theme.AGRI" />
+</resources>

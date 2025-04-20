@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".SignUpActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create new account"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/primaryText"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Email -->
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter your email address"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="12dp"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Mobile -->
+    <EditText
+        android:id="@+id/mobileEditText"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Enter your Mobile Number"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="12dp"
+        android:inputType="phone"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Password -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter your password"
+            android:background="@drawable/input_field_bg"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="48dp" />
+
+        <ImageView
+            android:id="@+id/eyeIconPassword"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/baseline_visibility_off_24" />
+    </RelativeLayout>
+
+    <!-- Confirm Password -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp">
+
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Enter your confirm password"
+            android:background="@drawable/input_field_bg"
+            android:inputType="textPassword"
+            android:paddingStart="12dp"
+            android:paddingEnd="48dp" />
+
+        <ImageView
+            android:id="@+id/eyeIconConfirm"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/baseline_visibility_off_24" />
+    </RelativeLayout>
+
+    <!-- Terms Checkbox -->
+    <CheckBox
+        android:id="@+id/checkboxAgreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I've read and agreed to "
+        android:textColor="@color/primaryText"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/userPolicyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Agreement and Privacy Policy"
+        android:textColor="@color/linkColor"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/signUpBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Sign up"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_signin"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Sign In Redirect -->
+    <TextView
+        android:id="@+id/backToSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Back to Sign In"
+        android:textColor="@color/linkColor"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>

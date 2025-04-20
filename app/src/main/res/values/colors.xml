@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primaryText">#004D40</color>
+    <color name="secondaryText">#777777</color>
+    <color name="linkColor">#00695C</color>
+    <color name="buttonColor">#656029</color>
+    <color name="olive">#6B6E23</color>
+    <color name="nav_icon_color">#444444</color>
+</resources>

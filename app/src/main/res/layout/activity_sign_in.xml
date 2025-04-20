@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signInLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FFFFFF"
+    android:padding="24dp"
+    tools:context=".SignInActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- App Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sonali Fasal"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#4B4A1F"
+            android:layout_marginTop="12dp" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in to your account"
+            android:textColor="#00695C"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Email Field -->
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter your email address"
+            android:background="@drawable/input_field_bg"
+            android:inputType="textEmailAddress"
+            android:paddingStart="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Password Field with Eye Icon -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Enter your password"
+                android:background="@drawable/input_field_bg"
+                android:inputType="textPassword"
+                android:paddingStart="12dp"
+                android:paddingEnd="48dp" />
+
+            <ImageView
+                android:id="@+id/eyeIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/baseline_visibility_off_24" />
+        </RelativeLayout>
+
+        <!-- Forgot Password -->
+        <TextView
+            android:id="@+id/forgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot password?"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_gravity="end"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Agreement Checkbox -->
+        <CheckBox
+            android:id="@+id/checkboxAgreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I've read and agreed to "
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/userPolicyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Agreement and Privacy Policy"
+            android:textColor="#00695C"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Sign In Button -->
+        <Button
+            android:id="@+id/signInBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Sign in"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_signin"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Create Account Link -->
+        <TextView
+            android:id="@+id/createAccountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don’t have an account? Create Account"
+            android:textColor="#00695C"
+            android:textSize="14sp"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+
+</LinearLayout>

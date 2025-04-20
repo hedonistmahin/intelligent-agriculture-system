@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".PredictionActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tvPredictionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crop Price Prediction"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/primaryText"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Subheading -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crop Price Prediction Input"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/primaryText"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Input Fields -->
+    <EditText
+        android:id="@+id/etSoilType"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Soil Type (e.g., loamy)"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etWeather"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Weather (e.g., Sunny)"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etIrrigation"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Irrigation (e.g., Drip)"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etPlantingDate"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="Planting Date (DD/MM)"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Generate Button -->
+    <Button
+        android:id="@+id/btnGeneratePrediction"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="GENERATE PREDICTION"
+        android:textColor="@android:color/white"
+        android:background="@color/olive"
+        android:textAllCaps="false"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Prediction Results -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Corn Card -->
+            <include layout="@layout/item_prediction_card" />
+
+            <!-- Wheat Card -->
+            <include layout="@layout/item_prediction_card" />
+
+            <!-- Soybean Card -->
+            <include layout="@layout/item_prediction_card" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:itemIconTint="@color/nav_icon_color"
+        app:itemTextColor="@color/nav_icon_color"
+        app:menu="@menu/bottom_nav_menu" />
+</LinearLayout>
