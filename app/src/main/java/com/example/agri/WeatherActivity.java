@@ -19,7 +19,8 @@ import java.util.Date;
 import java.util.Locale;
 
 public class WeatherActivity extends AppCompatActivity {
-    private static final String API_KEY = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
+    private static final String API_KEY = "6f83156e3c4556392d4d91c9259499b4"; // Replace with your OpenWeatherMap API key
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,31 +28,8 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
 
         // Initialize BottomNavigationView
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.nav_weather); // Highlight Weather tab
-
-        // Set up navigation item selection listener
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.nav_prediction:
-                    startActivity(new Intent(WeatherActivity.this, PredictionActivity.class));
-                    finish();
-                    return true;
-                case R.id.nav_market_analysis:
-                    startActivity(new Intent(WeatherActivity.this, MarketAnalysisActivity.class));
-                    finish();
-                    return true;
-                case R.id.nav_weather:
-                    // Already on Weather page, do nothing
-                    return true;
-                case R.id.nav_profile:
-                    startActivity(new Intent(WeatherActivity.this, ProfileActivity.class));
-                    finish();
-                    return true;
-                default:
-                    return false;
-            }
-        });
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        setupBottomNavigation();
 
         // Fetch weather data
         WeatherApiService weatherService = WeatherApiService.create();
@@ -135,6 +113,32 @@ public class WeatherActivity extends AppCompatActivity {
                         String.format(getString(R.string.error), t.getMessage()),
                         Toast.LENGTH_SHORT).show();
             }
+        });
+    }
+
+    private void setupBottomNavigation() {
+        bottomNavigationView.setSelectedItemId(R.id.navigation_weather);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.navigation_weather) {
+                return true;
+            } else if (item.getItemId() == R.id.navigation_home) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
+            } else if (item.getItemId() == R.id.navigation_prediction) {
+                startActivity(new Intent(getApplicationContext(), PredictionActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
+            } else if (item.getItemId() == R.id.navigation_profile) {
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
+            }
+            return false;
         });
     }
 
