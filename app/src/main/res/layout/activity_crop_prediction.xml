@@ -39,45 +39,38 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etSoilType"
+        <!-- Crop Selection Spinner -->
+        <Spinner
+            android:id="@+id/cropSpinner"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="মাটির ধরন (যেমন, দোঁআশ)"
+            android:layout_marginBottom="16dp"
+            android:spinnerMode="dropdown"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
-            android:layout_marginBottom="12dp"
-            android:inputType="text" />
+            android:hint="ফসল নির্বাচন করুন" />
 
-        <EditText
-            android:id="@+id/etWeather"
+        <!-- Area (Zilla) Selection Spinner -->
+        <Spinner
+            android:id="@+id/areaSpinner"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="আবহাওয়া (যেমন, রৌদ্রজ্জ্বল)"
+            android:layout_marginBottom="16dp"
+            android:spinnerMode="dropdown"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
-            android:layout_marginBottom="12dp"
-            android:inputType="text" />
+            android:hint="এলাকা নির্বাচন করুন (জেলা)" />
 
+        <!-- Date Input Field -->
         <EditText
-            android:id="@+id/etIrrigation"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="সেচ ব্যবস্থা (যেমন, ড্রিপ)"
-            android:background="@drawable/input_field_bg"
-            android:paddingStart="12dp"
-            android:layout_marginBottom="12dp"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/etPlantingDate"
+            android:id="@+id/etDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="রোপণের তারিখ (DD/MM)"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
             android:layout_marginBottom="16dp"
-            android:inputType="date" />
+            android:inputType="text" />
 
         <!-- Generate Button -->
         <Button
@@ -89,7 +82,19 @@
             android:background="@color/olive"
             android:textAllCaps="false"
             android:layout_marginBottom="16dp" />
+
     </LinearLayout>
+
+    <!-- Result Text Field -->
+    <TextView
+        android:id="@+id/tvPredictionResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ফলস্বরূপ পূর্বাভাস এখানে দেখানো হবে"
+        android:textSize="18sp"
+        android:textColor="@color/primaryText"
+        android:gravity="center"
+        android:visibility="gone" /> <!-- Initially hidden -->
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
