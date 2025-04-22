@@ -1,4 +1,4 @@
-package com.example.myapp;
+package com.example.agri;
 
 import android.content.Intent;
 import android.os.Bundle;

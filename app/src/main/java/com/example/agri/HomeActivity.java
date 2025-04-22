@@ -1,131 +1,84 @@
 package com.example.agri;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.LinearLayout;
-import android.widget.ImageButton;
-import android.widget.EditText;
+import android.widget.SearchView;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    // Declare views
-    private TextView appTitle, tempText, locationText, fullName, emailLabel, phoneNumber, country, genre, address;
-    private EditText searchBar;
+    // Declare variables for UI elements
+    private SearchView searchBar;
     private ImageView weatherIcon;
-    private LinearLayout cropCategories, priceList;
-    private ImageButton settingsButton;
-    private ImageView cropImage;
-    private TextView cropName;
+    private TextView tempText, locationText;
+    private ViewPager2 posterSlider;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home); // Make sure the XML file is named correctly
+        setContentView(R.layout.activity_home); // Replace with your actual XML file name
 
-        // Initialize views
-        appTitle = findViewById(R.id.appTitle);
-        tempText = findViewById(R.id.tempText);
-        locationText = findViewById(R.id.locationText);
+        // Initialize UI components
         searchBar = findViewById(R.id.searchBar);
         weatherIcon = findViewById(R.id.weatherIcon);
-        cropCategories = findViewById(R.id.cropCategories);
-        priceList = findViewById(R.id.priceList);
-        settingsButton = findViewById(R.id.settingsButton);
+        tempText = findViewById(R.id.tempText);
+        locationText = findViewById(R.id.locationText);
+        posterSlider = findViewById(R.id.posterSlider);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // Initialize crop categories and prices (dynamically setting these from data)
-        initializeCropCategories();
-        initializePriceList();
+        // Setup SearchView listener
+        searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Handle the query submission (optional)
+                return false;
+            }
 
-        // Set app title
-        appTitle.setText("সোনালী ফসল");
-
-        // Handle search functionality (for example, search weather data, crops, etc.)
-        searchBar.setOnClickListener(view -> {
-            // Implement search functionality here
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Handle text change in search bar (optional)
+                return false;
+            }
         });
 
-        // Set weather details (as a placeholder, replace with actual data)
+        // Setup Poster Slider (ViewPager2)
+        setupPosterSlider();
+
+        // Setup Weather Card content
+        setupWeatherCard();
+    }
+
+    // Method to set up the Poster Slider (ViewPager2)
+    private void setupPosterSlider() {
+        // You can add images to the slider using an adapter
+        PosterAdapter posterAdapter = new PosterAdapter(getPosters());
+        posterSlider.setAdapter(posterAdapter);
+
+    }
+
+    // Method to create a list of posters for the ViewPager2
+    private int[] getPosters() {
+        // Example poster images
+        return new int[]{
+                R.drawable.poster1,  // Replace with actual images in your drawable folder
+                R.drawable.poster2,
+                R.drawable.poster3
+        };
+    }
+
+    // Method to set up weather information
+    private void setupWeatherCard() {
+        // Set weather icon (You can dynamically change the icon based on the weather data)
+        weatherIcon.setImageResource(R.drawable.cloud_rain); // Example icon, change it dynamically based on weather
+
+        // Set temperature and location
         tempText.setText("১৯°");
         locationText.setText("মোহনপুর, রাজশাহী");
-        weatherIcon.setImageResource(R.drawable.cloud_rain);  // Example icon
-
-        // Handle settings button click
-        settingsButton.setOnClickListener(view -> {
-            // Open settings or perform any other action
-            openSettings();
-        });
-    }
-
-    // Initialize crop categories (this would be dynamic in real app, static here as an example)
-    private void initializeCropCategories() {
-        // Example: Dynamically create categories for crops like Oil Seeds, Cotton, and Potatoes
-        addCropCategory("তেল বীজ", R.drawable.oil_seeds);
-        addCropCategory("তুলা", R.drawable.cotton);
-        addCropCategory("আলু", R.drawable.potato);
-    }
-
-    // Add individual crop category
-    private void addCropCategory(String cropNameText, int cropImageResId) {
-        LinearLayout cropCategoryLayout = new LinearLayout(this);
-        cropCategoryLayout.setOrientation(LinearLayout.VERTICAL);
-        cropCategoryLayout.setGravity(View.TEXT_ALIGNMENT_CENTER);
-
-        // Create crop image
-        ImageView cropImage = new ImageView(this);
-        cropImage.setLayoutParams(new LinearLayout.LayoutParams(48, 48));
-        cropImage.setImageResource(cropImageResId);
-
-        // Create crop name TextView
-        TextView cropNameText = new TextView(this);
-        cropNameText.setText(cropNameText);
-        cropNameText.setTextSize(12);
-
-        // Add image and name to the category layout
-        cropCategoryLayout.addView(cropImage);
-        cropCategoryLayout.addView(cropNameText);
-
-        // Add the category layout to the main layout
-        cropCategories.addView(cropCategoryLayout);
-    }
-
-    // Initialize price list (dynamically setting prices for crops)
-    private void initializePriceList() {
-        addPrice("টমেটো", "৩০ টাকা/কেজি", R.drawable.tomatoes);
-        addPrice("চাল", "৫৬ টাকা/কেজি", R.drawable.rice);
-        addPrice("গম", "৫০ টাকা/কেজি", R.drawable.wheat);
-    }
-
-    // Add individual price item
-    private void addPrice(String cropNameText, String cropPrice, int cropImageResId) {
-        LinearLayout priceItemLayout = new LinearLayout(this);
-        priceItemLayout.setOrientation(LinearLayout.HORIZONTAL);
-        priceItemLayout.setPadding(10, 10, 10, 10);
-
-        // Crop name and price
-        TextView cropText = new TextView(this);
-        cropText.setText(cropNameText + "\n" + cropPrice);
-        cropText.setTextSize(16);
-        cropText.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
-
-        // Crop image
-        ImageView cropImage = new ImageView(this);
-        cropImage.setLayoutParams(new LinearLayout.LayoutParams(48, 48));
-        cropImage.setImageResource(cropImageResId);
-
-        // Add the name, price, and image to the price item layout
-        priceItemLayout.addView(cropText);
-        priceItemLayout.addView(cropImage);
-
-        // Add the price item layout to the price list layout
-        priceList.addView(priceItemLayout);
-    }
-
-    // Open settings activity or perform any settings-related tasks
-    private void openSettings() {
-        // For now, show a simple message or navigate to settings
-        // Implement your settings functionality here
     }
 }

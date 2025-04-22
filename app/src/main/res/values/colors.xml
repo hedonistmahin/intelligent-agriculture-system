@@ -11,4 +11,10 @@
     <color name="purple_700">#673AB7</color> <!-- Deep Purple -->
     <color name="purple_500">#9C27B0</color> <!-- Lighter Purple -->
     <color name="purple_300">#AB47BC</color> <!-- Light Purple -->
+    <color name="green">#4CAF50</color>
+    <color name="light_green">#A5D6A7</color>
+    <color name="very_light_green">#C8E6C9</color>
+    <color name="red">#F44336</color>
+    <color name="light_red">#EF9A9A</color>
+    <color name="very_light_red">#FFCDD2</color>
 </resources>
