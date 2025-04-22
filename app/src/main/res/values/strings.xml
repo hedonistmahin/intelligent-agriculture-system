@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">AGRI</string>
+    <string name="weather_forecast">আবহাওয়ার পূর্বাভাস</string>
+    <string name="air_quality">বায়ুর গুণমান</string>
+    <string name="air_quality_value">০-নিম্ন স্বাস্থ্য ঝুঁকি</string>
+    <string name="see_more">আরও দেখুন</string>
+    <string name="uv_index">ইউভি সূচক</string>
+    <string name="uv_index_value">৮</string>
+    <string name="uv_index_desc">মাঝারি</string>
+    <string name="sunrise">সূর্যোদয়</string>
+    <string name="sunrise_value">৫:৩৮ পূর্বাহ্ন</string>
+    <string name="sunset">সূর্যাস্ত</string>
+    <string name="sunset_value">৭:২৫ অপরাহ্ন</string>
+    <string name="wind">বাতাস</string>
+    <string name="wind_direction">উ</string>
+    <string name="wind_speed">৯.৭ কিমি/ঘণ্টা</string>
+    <string name="rainfall">বৃষ্টিপাত</string>
+    <string name="rainfall_value">১.৮ মিমি</string>
+    <string name="rainfall_desc">গত ঘণ্টায়</string>
+    <string name="rainfall_next">পরবর্তী ২৪ ঘণ্টায় ১.২ মিমি প্রত্যাশিত</string>
+    <string name="feels_like">অনুভূত তাপমাত্রা</string>
+    <string name="feels_like_value">১৯°</string>
+    <string name="feels_like_desc">প্রকৃত তাপমাত্রার কাছাকাছি</string>
+    <string name="humidity">আর্দ্রতা</string>
+    <string name="humidity_value">৯০%</string>
+    <string name="humidity_desc">এখন শিশির বিন্দু ১৭</string>
 </resources>

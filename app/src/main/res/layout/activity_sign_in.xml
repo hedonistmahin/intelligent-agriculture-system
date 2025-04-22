@@ -16,37 +16,37 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <!-- App Name -->
+        <!-- অ্যাপ নাম -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sonali Fasal"
+            android:text="সোনালী ফসল"
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="#4B4A1F"
             android:layout_marginTop="12dp" />
 
-        <!-- Subtitle -->
+        <!-- সাবটাইটেল -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign in to your account"
+            android:text="আপনার অ্যাকাউন্টে সাইন ইন করুন"
             android:textColor="#00695C"
             android:textSize="16sp"
             android:layout_marginBottom="24dp" />
 
-        <!-- Email Field -->
+        <!-- ইমেইল ফিল্ড -->
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Enter your email address"
+            android:hint="আপনার ইমেইল ঠিকানা লিখুন"
             android:background="@drawable/input_field_bg"
             android:inputType="textEmailAddress"
             android:paddingStart="12dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Password Field with Eye Icon -->
+        <!-- পাসওয়ার্ড ফিল্ড -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -56,7 +56,7 @@
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Enter your password"
+                android:hint="আপনার পাসওয়ার্ড লিখুন"
                 android:background="@drawable/input_field_bg"
                 android:inputType="textPassword"
                 android:paddingStart="12dp"
@@ -72,50 +72,51 @@
                 android:src="@drawable/baseline_visibility_off_24" />
         </RelativeLayout>
 
-        <!-- Forgot Password -->
+        <!-- পাসওয়ার্ড ভুলে গেছেন -->
         <TextView
             android:id="@+id/forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Forgot password?"
+            android:text="পাসওয়ার্ড ভুলে গেছেন?"
             android:textSize="14sp"
             android:textColor="#666666"
             android:layout_gravity="end"
             android:layout_marginBottom="12dp" />
 
-        <!-- Agreement Checkbox -->
+        <!-- চেকবক্স -->
         <CheckBox
             android:id="@+id/checkboxAgreement"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="I've read and agreed to "
+            android:text="আমি নিয়মাবলিতে সম্মতি দিয়েছি"
             android:layout_marginBottom="16dp" />
 
+        <!-- প্রাইভেসি পলিসি -->
         <TextView
             android:id="@+id/userPolicyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="User Agreement and Privacy Policy"
+            android:text="ব্যবহারকারীর চুক্তি এবং গোপনীয়তা নীতি"
             android:textColor="#00695C"
             android:textSize="14sp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Sign In Button -->
+        <!-- সাইন ইন বাটন -->
         <Button
             android:id="@+id/signInBtn"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Sign in"
+            android:text="সাইন ইন করুন"
             android:textColor="#FFFFFF"
             android:background="@drawable/btn_signin"
             android:layout_marginBottom="24dp" />
 
-        <!-- Create Account Link -->
+        <!-- একাউন্ট তৈরি লিংক -->
         <TextView
             android:id="@+id/createAccountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don’t have an account? Create Account"
+            android:text="আপনার একাউন্ট নেই? একাউন্ট তৈরি করুন"
             android:textColor="#00695C"
             android:textSize="14sp"
             android:layout_marginTop="24dp" />

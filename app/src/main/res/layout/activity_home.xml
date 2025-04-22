@@ -12,7 +12,7 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Smart Agriculture"
+        android:text="সোনালী ফসল"
         android:textSize="26sp"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
@@ -25,7 +25,7 @@
         android:id="@+id/searchBar"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:hint="Search"
+        android:hint="অনুসন্ধান করুন"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:background="@drawable/search_background"
         android:padding="10dp"
@@ -64,7 +64,7 @@
                 android:id="@+id/tempText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="19°"
+                android:text="১৯°"
                 android:textSize="32sp"
                 android:textColor="@android:color/white"
                 android:layout_margin="12dp" />
@@ -73,15 +73,15 @@
                 android:id="@+id/locationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mohanpur, Rajshahi"
+                android:text="মোহনপুর, রাজশাহী"
                 android:textColor="@android:color/white"
                 android:layout_below="@id/tempText"
                 android:layout_marginStart="12dp"/>
 
             <ImageView
                 android:id="@+id/weatherIcon"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="16dp"
@@ -117,11 +117,47 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Oil seeds"
+                android:text="তেল বীজ"
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <!-- Add more items like "Cottons", "Potatoes" similarly -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="12dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/cotton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="তুলা"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="12dp">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/potato" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="আলু"
+                android:textSize="12sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -149,16 +185,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tomatoes\n30 Taka/kg"
+                android:text="টমেটো\n৩০ টাকা/কেজি"
                 android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/tomatoes" />
+                android:src="@drawable/tomateos" />
         </LinearLayout>
 
-        <!-- Repeat for Rice, Wheat -->
+        <!-- Repeat with translations for Rice, Wheat -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -171,16 +207,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tomatoes\n30 Taka/kg"
+                android:text="চাল\n৫৬ টাকা/কেজি"
                 android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/tomatoes" />
+                android:src="@drawable/rice" />
         </LinearLayout>
 
-        <!-- Repeat for Rice, Wheat -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -193,60 +228,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Tomatoes\n30 Taka/kg"
+                android:text="গম\n৫০ টাকা/কেজি"
                 android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/tomatoes" />
+                android:src="@drawable/wheat" />
         </LinearLayout>
 
-        <!-- Repeat for Rice, Wheat -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/price_card"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tomatoes\n30 Taka/kg"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/tomatoes" />
-        </LinearLayout>
-
-        <!-- Repeat for Rice, Wheat -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/price_card"
-            android:padding="10dp"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Tomatoes\n30 Taka/kg"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/tomateos.png" />
-        </LinearLayout>
-
-        <!-- Repeat for Rice, Wheat -->
     </LinearLayout>
 
     <!-- Bottom Navigation -->

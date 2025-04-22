@@ -15,7 +15,7 @@
         android:id="@+id/tvPredictionTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Crop Price Prediction"
+        android:text="ফসলের দাম পূর্বাভাস"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/primaryText"
@@ -26,13 +26,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crop Price Prediction Input"
+        android:text="ইনপুট দিন (ফসলের দাম পূর্বাভাস)"
         android:textStyle="bold"
         android:textSize="16sp"
         android:textColor="@color/primaryText"
         android:layout_marginBottom="8dp" />
 
-    <!-- Container for inputs to take most space -->
+    <!-- Input container -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -43,44 +43,48 @@
             android:id="@+id/etSoilType"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Soil Type (e.g., loamy)"
+            android:hint="মাটির ধরন (যেমন, দোঁআশ)"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/etWeather"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Weather (e.g., Sunny)"
+            android:hint="আবহাওয়া (যেমন, রৌদ্রজ্জ্বল)"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/etIrrigation"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Irrigation (e.g., Drip)"
+            android:hint="সেচ ব্যবস্থা (যেমন, ড্রিপ)"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
-            android:layout_marginBottom="12dp" />
+            android:layout_marginBottom="12dp"
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/etPlantingDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Planting Date (DD/MM)"
+            android:hint="রোপণের তারিখ (DD/MM)"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:inputType="date" />
 
         <!-- Generate Button -->
         <Button
             android:id="@+id/btnGeneratePrediction"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="GENERATE PREDICTION"
+            android:text="পূর্বাভাস দেখান"
             android:textColor="@android:color/white"
             android:background="@color/olive"
             android:textAllCaps="false"

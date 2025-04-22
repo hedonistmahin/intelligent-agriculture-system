@@ -8,4 +8,7 @@
     <color name="buttonColor">#656029</color>
     <color name="olive">#6B6E23</color>
     <color name="nav_icon_color">#444444</color>
+    <color name="purple_700">#673AB7</color> <!-- Deep Purple -->
+    <color name="purple_500">#9C27B0</color> <!-- Lighter Purple -->
+    <color name="purple_300">#AB47BC</color> <!-- Light Purple -->
 </resources>
