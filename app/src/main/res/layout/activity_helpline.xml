@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".HelplineActivity">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/helplineTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="হেল্পলাইন"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- District Spinner -->
+    <Spinner
+        android:id="@+id/districtSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:spinnerMode="dropdown"
+        android:background="@drawable/input_field_bg"
+        android:paddingStart="12dp"
+        android:layout_marginBottom="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Helpline Numbers -->
+    <TextView
+        android:id="@+id/helplineNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="হেল্পলাইন নাম্বার এখানে দেখাবে"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@id/districtSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,90 +31,49 @@
                 android:gravity="center"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Seasonal Crops List -->
-            <TextView
-                android:id="@+id/seasonalCropsTitle"
+            <!-- Video Button -->
+            <Button
+                android:id="@+id/videoButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="মৌসুম অনুযায়ী ফসল"
+                android:text="ভিডিও"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/blue"
+                android:textColor="@android:color/white"/>
 
-            <TextView
-                android:id="@+id/seasonalCropsList"
+            <!-- Crop Guideline Button -->
+            <Button
+                android:id="@+id/cropGuidelineButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ফসলের নাম ১\nফসলের নাম ২\nফসলের নাম ৩"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp" />
+                android:text="ফসলের নির্দেশিকা"
+                android:textSize="18sp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/green"
+                android:textColor="@android:color/white"/>
 
-            <!-- Crop Timeline -->
-            <TextView
-                android:id="@+id/cropTimelineTitle"
+            <!-- Crop Timing Button -->
+            <Button
+                android:id="@+id/cropTimingButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ফসলের সময়সীমা"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/orange"
+                android:textColor="@android:color/white"/>
 
-            <TextView
-                android:id="@+id/cropTimelineDetails"
+            <!-- Helpline Button -->
+            <Button
+                android:id="@+id/helplineButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="রোপণের সময়: জানুয়ারী - ফেব্রুয়ারী\nকাটা সময়: মে - জুন"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp" />
-
-            <!-- Disease Prevention Tips -->
-            <TextView
-                android:id="@+id/diseasePreventionTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="রোগ প্রতিরোধ"
+                android:text="হেল্পলাইন"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="8dp" />
-
-            <TextView
-                android:id="@+id/diseasePreventionTips"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="১. সঠিক সেচ ব্যবস্থাপনা\n২. ফসলের পরিচর্যা নিয়মিত করা"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="16dp" />
-
-            <!-- Helpline Numbers -->
-            <TextView
-                android:id="@+id/helplineTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="হেল্পলাইন নাম্বার"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:layout_marginBottom="8dp" />
-
-            <Spinner
-                android:id="@+id/districtSpinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp" />
-
-            <TextView
-                android:id="@+id/helplineNumbers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="হেল্পলাইন নাম্বার এখানে দেখাবে"
-                android:textSize="16sp"
-                android:textColor="@android:color/black" />
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/red"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
     </ScrollView>

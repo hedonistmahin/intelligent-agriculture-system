@@ -48,6 +48,10 @@
 
         <activity android:name=".CropsActivity" />
         <activity android:name=".PesticidesActivity" />
+        <activity android:name=".VideoActivity" />
+        <activity android:name=".CropGuidelineActivity" />
+        <activity android:name=".CropTimingActivity" />
+        <activity android:name=".HelplineActivity" />
 
     </application>
 

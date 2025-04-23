@@ -113,9 +113,18 @@ public class HomeActivity extends AppCompatActivity {
 
     private int[] getPosters() {
         return new int[]{
-                R.drawable.poster1,
-                R.drawable.poster2,
-                R.drawable.poster3
+                R.drawable.poster7,
+                R.drawable.poster8,
+                R.drawable.poster9,
+                R.drawable.poster10,
+                R.drawable.poster11,
+                R.drawable.poster12,
+                R.drawable.poster13,
+                R.drawable.poster16,
+                R.drawable.poster17,
+                R.drawable.poster18,
+                R.drawable.poster21,
+                R.drawable.poster22
         };
     }
 

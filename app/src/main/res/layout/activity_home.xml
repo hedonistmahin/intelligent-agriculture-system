@@ -110,11 +110,7 @@
             android:clickable="true"
             android:focusable="true"
             android:contentDescription="Crop Section">
-            <ImageView
-                android:layout_width="160dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_crop"
-                android:contentDescription="Crop Icon" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -135,11 +131,7 @@
             android:clickable="true"
             android:focusable="true"
             android:contentDescription="Pesticide Section">
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/ic_pesticide"
-                android:contentDescription="Pesticide Icon" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -152,8 +144,8 @@
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/posterSlider"
         android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="35dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="30dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintTop_toBottomOf="@id/cropsPesticideSection"
         app:layout_constraintStart_toStartOf="parent"

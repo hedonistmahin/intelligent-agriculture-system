@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="districts_array">
+        <item>ঢাকা</item>
+        <item>রাজশাহী</item>
+        <item>চট্টগ্রাম</item>
+        <item>খুলনা</item>
+        <item>বরিশাল</item>
+        <item>সিলেট</item>
+        <item>রংপুর</item>
+        <item>ময়মনসিংহ</item>
+    </string-array>
+</resources>

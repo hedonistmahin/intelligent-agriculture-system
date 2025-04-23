@@ -2,53 +2,53 @@ package com.example.agri;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class InformationActivity extends AppCompatActivity {
 
-    private Spinner districtSpinner;
-    private TextView helplineNumbers;
-
-    // Sample data: Districts and their helpline numbers
-    private String[] districts = {"ঢাকা", "চট্টগ্রাম", "রাজশাহী", "বরিশাল", "খুলনা"};
-    private String[] helplines = {
-            "ঢাকা: ০১৭XXXXXXXX",
-            "চট্টগ্রাম: ০১৮XXXXXXXX",
-            "রাজশাহী: ০১৯XXXXXXXX",
-            "বরিশাল: ০২০XXXXXXXX",
-            "খুলনা: ০২১XXXXXXXX"
-    };
+    private Button videoButton, cropGuidelineButton, cropTimingButton, helplineButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_information); // Ensure the layout name matches
+        setContentView(R.layout.activity_information); // Make sure the layout name is correct
 
-        districtSpinner = findViewById(R.id.districtSpinner);
-        helplineNumbers = findViewById(R.id.helplineNumbers);
+        // Initialize buttons
+        videoButton = findViewById(R.id.videoButton);
+        cropGuidelineButton = findViewById(R.id.cropGuidelineButton);
+        cropTimingButton = findViewById(R.id.cropTimingButton);
+        helplineButton = findViewById(R.id.helplineButton);
 
-        // Set up the Spinner with district names
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, districts);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        districtSpinner.setAdapter(adapter);
+        // Set up video button click listener
+        videoButton.setOnClickListener(v -> {
+            // Open the Video activity
+            Intent intent = new Intent(InformationActivity.this, VideoActivity.class);
+            startActivity(intent);
+        });
 
-        // Set a listener for Spinner item selection using an anonymous class
-        districtSpinner.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(android.widget.AdapterView<?> parentView, android.view.View view, int position, long id) {
-                // Display the corresponding helpline number based on the selected district
-                helplineNumbers.setText(helplines[position]);
-            }
+        // Set up crop guideline button click listener
+        cropGuidelineButton.setOnClickListener(v -> {
+            // Open crop guideline details page
+            Intent intent = new Intent(InformationActivity.this, CropGuidelineActivity.class);
+            startActivity(intent);
+        });
 
-            @Override
-            public void onNothingSelected(android.widget.AdapterView<?> parentView) {
-                // Optionally handle the case where nothing is selected
-                helplineNumbers.setText("নির্বাচন করা হয়নি");
-            }
+        // Set up crop timing button click listener
+        cropTimingButton.setOnClickListener(v -> {
+            // Open crop timing details page
+            Intent intent = new Intent(InformationActivity.this, CropTimingActivity.class);
+            startActivity(intent);
+        });
+
+        // Set up helpline button click listener
+        helplineButton.setOnClickListener(v -> {
+            // Open helpline info page
+            Intent intent = new Intent(InformationActivity.this, HelplineActivity.class);
+            startActivity(intent);
         });
 
         // Setup bottom navigation
