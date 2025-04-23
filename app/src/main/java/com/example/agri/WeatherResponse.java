@@ -9,6 +9,7 @@ public class WeatherResponse {
     private Sys sys;
     private Wind wind;
     private Rain rain;
+    private Coord coord;
 
     public Main getMain() {
         return main;
@@ -32,5 +33,22 @@ public class WeatherResponse {
 
     public Rain getRain() {
         return rain;
+    }
+
+    public Coord getCoord() {
+        return coord;
+    }
+
+    public static class Coord {
+        private double lat;
+        private double lon;
+
+        public double getLat() {
+            return lat;
+        }
+
+        public double getLon() {
+            return lon;
+        }
     }
 }

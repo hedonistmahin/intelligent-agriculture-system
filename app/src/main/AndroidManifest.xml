@@ -16,21 +16,39 @@
         tools:targetApi="32">
 
         <!-- Main Activity for HomeActivity -->
-        <activity android:name=".HomeActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".WelcomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".PredictionActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".WeatherActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
+
         <activity android:name=".CropsActivity" />
         <activity android:name=".PesticidesActivity" />
 
-        <!-- SignInActivity (if needed for future navigation) -->
-        <activity
-            android:name=".SignInActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

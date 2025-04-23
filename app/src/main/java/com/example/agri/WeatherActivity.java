@@ -2,7 +2,12 @@ package com.example.agri;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +20,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class WeatherActivity extends AppCompatActivity {
-    private static final String API_KEY = "6f83156e3c4556392d4d91c9259499b4"; // Replace with your OpenWeatherMap API key
+    private static final String API_KEY = "f158cc8f703a554c078b339da07bdb7d";
     private BottomNavigationView bottomNavigationView;
+    private Spinner citySpinner;
+    private Button btnRefreshWeather;
+    private String selectedCity = "Dhaka";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +41,55 @@ public class WeatherActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         setupBottomNavigation();
 
-        // Fetch weather data
+        // Initialize Spinner and Refresh Button
+        citySpinner = findViewById(R.id.citySpinner);
+        btnRefreshWeather = findViewById(R.id.btnRefreshWeather);
+
+        // Set up city spinner
+        List<String> cities = Arrays.asList(
+                "নির্বাচন করুন",
+                "ঢাকা", "চট্টগ্রাম", "রাজশাহী", "খুলনা", "বরিশাল",
+                "সিলেট", "রংপুর", "ময়মনসিংহ", "কুমিল্লা", "নারায়ণগঞ্জ",
+                "গাজীপুর", "দিনাজপুর", "ফরিদপুর", "যশোর", "বগুড়া"
+        );
+        ArrayAdapter<String> cityAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, cities);
+        cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        citySpinner.setAdapter(cityAdapter);
+
+        // Set up Spinner listener to update selected city
+        citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String city = parent.getItemAtPosition(position).toString();
+                if (!city.equals("নির্বাচন করুন")) {
+                    selectedCity = city;
+                    fetchWeatherData(selectedCity);
+                    ((TextView) view).setTextColor(getResources().getColor(android.R.color.black));
+                } else {
+                    ((TextView) view).setTextColor(getResources().getColor(android.R.color.darker_gray));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        // Set up Refresh Button listener
+        btnRefreshWeather.setOnClickListener(v -> {
+            if (selectedCity.equals("নির্বাচন করুন")) {
+                Toast.makeText(WeatherActivity.this, "একটি শহর নির্বাচন করুন", Toast.LENGTH_SHORT).show();
+            } else {
+                fetchWeatherData(selectedCity);
+            }
+        });
+
+        // Initial fetch for default city (Dhaka)
+        fetchWeatherData(selectedCity);
+    }
+
+    private void fetchWeatherData(String city) {
         WeatherApiService weatherService = WeatherApiService.create();
-        Call<WeatherResponse> call = weatherService.getWeather("Dhaka", API_KEY, "metric", "bn");
+        Call<WeatherResponse> call = weatherService.getWeather(city, API_KEY, "metric", "bn");
 
         call.enqueue(new Callback<WeatherResponse>() {
             @Override
@@ -41,11 +97,10 @@ public class WeatherActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     WeatherResponse weather = response.body();
 
-                    // Air Quality (Mock data)
-                    TextView airQualityValue = findViewById(R.id.airQualityValue);
-                    ProgressBar airQualityProgress = findViewById(R.id.airQualityProgress);
-                    airQualityValue.setText(getString(R.string.air_quality_value));
-                    airQualityProgress.setProgress(0); // Updated to match image
+                    // Fetch air quality data using coordinates
+                    double lat = weather.getCoord().getLat();
+                    double lon = weather.getCoord().getLon();
+                    fetchAirQualityData(lat, lon);
 
                     // UV Index (Mock data)
                     TextView uvIndexValue = findViewById(R.id.uvIndexValue);
@@ -53,7 +108,7 @@ public class WeatherActivity extends AppCompatActivity {
                     ProgressBar uvIndexProgress = findViewById(R.id.uvIndexProgress);
                     uvIndexValue.setText(getString(R.string.uv_index_value));
                     uvIndexDesc.setText(getString(R.string.uv_index_desc));
-                    uvIndexProgress.setProgress(8); // Updated to match image
+                    uvIndexProgress.setProgress(8);
 
                     // Sunrise and Sunset
                     TextView sunriseValue = findViewById(R.id.sunriseValue);
@@ -98,7 +153,7 @@ public class WeatherActivity extends AppCompatActivity {
                     TextView humidityDesc = findViewById(R.id.humidityDesc);
                     String humidity = String.format(Locale.getDefault(), "%d%%", weather.getMain().getHumidity());
                     humidityValue.setText(convertToBanglaDigits(humidity));
-                    String dewPoint = String.format(Locale.getDefault(), "এখন শিশির বিন্দু %d", 17); // Mock dew point
+                    String dewPoint = String.format(Locale.getDefault(), "এখন শিশির বিন্দু %d", 17);
                     humidityDesc.setText(convertToBanglaDigits(dewPoint));
                 } else {
                     Toast.makeText(WeatherActivity.this,
@@ -111,6 +166,51 @@ public class WeatherActivity extends AppCompatActivity {
             public void onFailure(Call<WeatherResponse> call, Throwable t) {
                 Toast.makeText(WeatherActivity.this,
                         String.format(getString(R.string.error), t.getMessage()),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void fetchAirQualityData(double lat, double lon) {
+        WeatherApiService weatherService = WeatherApiService.create();
+        Call<AirQualityResponse> call = weatherService.getAirQuality(lat, lon, API_KEY);
+
+        call.enqueue(new Callback<AirQualityResponse>() {
+            @Override
+            public void onResponse(Call<AirQualityResponse> call, Response<AirQualityResponse> response) {
+                if (response.isSuccessful() && response.body() != null && response.body().list.length > 0) {
+                    AirQualityResponse airQuality = response.body();
+                    int aqi = airQuality.list[0].main.aqi;
+                    float pm25 = airQuality.list[0].components.pm2_5;
+
+                    // Map AQI to a description
+                    String[] aqiDescriptions = {"ভালো", "ন্যায্য", "মাঝারি", "দুর্বল", "খুব দুর্বল"};
+                    String aqiDesc = aqiDescriptions[aqi - 1];
+
+                    // Update UI
+                    TextView airQualityValue = findViewById(R.id.airQualityValue);
+                    TextView airQualityDetails = findViewById(R.id.airQualityDetails);
+                    ProgressBar airQualityProgress = findViewById(R.id.airQualityProgress);
+                    airQualityValue.setText(aqiDesc);
+
+                    // Map AQI to progress (1-5 scale to 0-100 progress)
+                    int progress = (aqi - 1) * 25;
+                    airQualityProgress.setProgress(progress);
+
+                    // Display PM2.5 concentration
+                    String pm25Text = String.format(Locale.getDefault(), "PM2.5: %.1f µg/m³", pm25);
+                    airQualityDetails.setText(convertToBanglaDigits(pm25Text));
+                } else {
+                    Toast.makeText(WeatherActivity.this,
+                            "বায়ুর গুণমান ডেটা পাওয়া যায়নি",
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<AirQualityResponse> call, Throwable t) {
+                Toast.makeText(WeatherActivity.this,
+                        "বায়ুর গুণমান ডেটা ফেচ করতে ব্যর্থ: " + t.getMessage(),
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -132,8 +232,8 @@ public class WeatherActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
-            } else if (item.getItemId() == R.id.navigation_profile) {
-                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            } else if (item.getItemId() == R.id.navigation_infromation) {
+                startActivity(new Intent(getApplicationContext(), InformationActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
@@ -143,7 +243,7 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     private String getWindDirection(int degrees) {
-        String[] directions = {"উ", "উ-পূ", "পূ", "দ-পূ", "দ", "দ-প", "প", "উ-প"}; // N, NE, E, SE, S, SW, W, NW in Bangla
+        String[] directions = {"উ", "উ-পূ", "পূ", "দ-পূ", "দ", "দ-প", "প", "উ-প"};
         return directions[(int) Math.round(((degrees % 360) / 45)) % 8];
     }
 

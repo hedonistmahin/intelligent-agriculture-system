@@ -32,7 +32,35 @@
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:paddingBottom="24dp" />
+                android:paddingBottom="16dp" />
+
+            <!-- City Selection Spinner and Refresh Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Spinner
+                    android:id="@+id/citySpinner"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="8dp"
+                    android:spinnerMode="dropdown"
+                    android:background="@drawable/input_field_bg"
+                    android:paddingStart="12dp" />
+
+                <Button
+                    android:id="@+id/btnRefreshWeather"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:text="রিফ্রেশ"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/holo_blue_dark"
+                    android:textAllCaps="false" />
+            </LinearLayout>
 
             <!-- Air Quality Card (Full Width) -->
             <androidx.cardview.widget.CardView
@@ -67,10 +95,18 @@
                             android:id="@+id/airQualityValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/air_quality_value"
+                            android:text=""
                             android:textColor="@android:color/black"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/airQualityDetails"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="PM2.5: ০ µg/m³"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
 
                         <ProgressBar
                             android:id="@+id/airQualityProgress"
@@ -79,19 +115,11 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:max="100"
-                            android:progress="30"
+                            android:progress="0"
                             android:progressTint="#FF6F61" />
 
                     </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/airQualitySeeMore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="@string/see_more"
-                        android:textColor="#FF6F61"
-                        android:textSize="14sp" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

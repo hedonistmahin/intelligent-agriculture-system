@@ -1,6 +1,5 @@
 package com.example.agri;
 
-import com.example.agri.WeatherResponse;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -14,6 +13,13 @@ public interface WeatherApiService {
             @Query("appid") String apiKey,
             @Query("units") String units,
             @Query("lang") String lang
+    );
+
+    @GET("air_pollution")
+    Call<AirQualityResponse> getAirQuality(
+            @Query("lat") double lat,
+            @Query("lon") double lon,
+            @Query("appid") String apiKey
     );
 
     static WeatherApiService create() {

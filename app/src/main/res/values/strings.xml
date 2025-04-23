@@ -2,7 +2,6 @@
     <string name="app_name">AGRI</string>
     <string name="weather_forecast">আবহাওয়ার পূর্বাভাস</string>
     <string name="air_quality">বায়ুর গুণমান</string>
-    <string name="air_quality_value">০-নিম্ন স্বাস্থ্য ঝুঁকি</string>
     <string name="see_more">আরও দেখুন</string>
     <string name="uv_index">ইউভি সূচক</string>
     <string name="uv_index_value">৮</string>
@@ -24,4 +23,6 @@
     <string name="humidity">আর্দ্রতা</string>
     <string name="humidity_value">৯০%</string>
     <string name="humidity_desc">এখন শিশির বিন্দু ১৭</string>
+    <string name="error">Error: %s</string>
+
 </resources>

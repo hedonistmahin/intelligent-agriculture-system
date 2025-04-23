@@ -135,8 +135,8 @@ public class HomeActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
-            } else if (item.getItemId() == R.id.navigation_profile) {
-                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            } else if (item.getItemId() == R.id.navigation_infromation) {
+                startActivity(new Intent(getApplicationContext(), InformationActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
