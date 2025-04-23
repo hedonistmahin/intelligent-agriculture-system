@@ -123,22 +123,30 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.navigation_home) {
+            int itemId = item.getItemId();
+            if (itemId == R.id.navigation_home) {
+                // Already on HomeActivity, do nothing
                 return true;
-            } else if (item.getItemId() == R.id.navigation_prediction) {
-                startActivity(new Intent(getApplicationContext(), PredictionActivity.class));
+            } else if (itemId == R.id.navigation_prediction) {
+                Intent intent = new Intent(HomeActivity.this, PredictionActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
+                // Do NOT call finish() here
                 return true;
-            } else if (item.getItemId() == R.id.navigation_weather) {
-                startActivity(new Intent(getApplicationContext(), WeatherActivity.class));
+            } else if (itemId == R.id.navigation_weather) {
+                Intent intent = new Intent(HomeActivity.this, WeatherActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
+                // Do NOT call finish() here
                 return true;
-            } else if (item.getItemId() == R.id.navigation_infromation) {
-                startActivity(new Intent(getApplicationContext(), InformationActivity.class));
+            } else if (itemId == R.id.navigation_infromation) {
+                Intent intent = new Intent(HomeActivity.this, InformationActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
+                // Do NOT call finish() here
                 return true;
             }
             return false;

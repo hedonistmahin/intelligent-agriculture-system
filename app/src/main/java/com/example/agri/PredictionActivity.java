@@ -138,7 +138,6 @@ public class PredictionActivity extends AppCompatActivity {
             } else if (item.getItemId() == R.id.navigation_home) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
                 return true;
             } else if (item.getItemId() == R.id.navigation_weather) {
                 startActivity(new Intent(getApplicationContext(), WeatherActivity.class));

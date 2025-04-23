@@ -66,7 +66,6 @@ public class InformationActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.navigation_home) {
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
                 return true;
             } else if (item.getItemId() == R.id.navigation_prediction) {
                 startActivity(new Intent(getApplicationContext(), PredictionActivity.class));
