@@ -63,22 +63,25 @@ public class InformationActivity extends AppCompatActivity {
 
         // Set up navigation item selection listener
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.navigation_home) {
-                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+            if (item.getItemId() == R.id.navigation_infromation) {
+                return true; // ইতিমধ্যে Information পেজে আছে, কিছু করার দরকার নেই
+            } else if (item.getItemId() == R.id.navigation_home) {
+                // হোম পেজে ফিরে যাওয়ার জন্য Intent তৈরি করো
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                // FLAG_ACTIVITY_CLEAR_TOP এবং FLAG_ACTIVITY_SINGLE_TOP ব্যবহার করো
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                return true;
-            } else if (item.getItemId() == R.id.navigation_prediction) {
-                startActivity(new Intent(getApplicationContext(), PredictionActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
                 return true;
             } else if (item.getItemId() == R.id.navigation_weather) {
                 startActivity(new Intent(getApplicationContext(), WeatherActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
-            } else if (item.getItemId() == R.id.navigation_infromation) {
-                // Already on Information page, do nothing
+            } else if (item.getItemId() == R.id.navigation_prediction) {
+                startActivity(new Intent(getApplicationContext(), PredictionActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
                 return true;
             }
             return false;

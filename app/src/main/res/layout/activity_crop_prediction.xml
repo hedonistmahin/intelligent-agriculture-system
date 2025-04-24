@@ -66,7 +66,7 @@
             android:id="@+id/etDate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="রোপণের তারিখ (DD/MM)"
+            android:hint="রোপণের তারিখ (YEAR-MM-DD)"
             android:background="@drawable/input_field_bg"
             android:paddingStart="12dp"
             android:layout_marginBottom="16dp"

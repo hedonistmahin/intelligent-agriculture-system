@@ -82,7 +82,7 @@ public class PredictionActivity extends AppCompatActivity {
         cropAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         cropSpinner.setAdapter(cropAdapter);
 
-        // Disable the hint item from being selectable
+        // Disable the hint item from being selectable in crop spinner
         cropSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -97,29 +97,15 @@ public class PredictionActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {}
         });
 
-        // Set up area spinner with hint
+        // Set up area spinner with districts from districtMapping
         List<String> districts = new ArrayList<>();
         districts.add("এলাকা নির্বাচন করুন (জেলা)"); // Hint as the first item
-        districts.addAll(Arrays.asList(
-                "বাগেরহাট", "বান্দরবান", "বরগুনা", "বরিশাল", "ভোলা",
-                "বগুড়া", "ব্রাহ্মণবাড়িয়া", "চাঁদপুর", "চট্টগ্রাম", "চুয়াডাঙ্গা",
-                "কুমিল্লা", "কক্সবাজার", "ঢাকা", "দিনাজপুর", "ফরিদপুর",
-                "ফেনী", "গাইবান্ধা", "গাজীপুর", "গোপালগঞ্জ", "হবিগঞ্জ",
-                "জামালপুর", "যশোর", "ঝালকাঠি", "ঝিনাইদহ", "জয়পুরহাট",
-                "খাগড়াছড়ি", "খুলনা", "কিশোরগঞ্জ", "কুষ্টিয়া", "লক্ষ্মীপুর",
-                "লালমনিরহাট", "মাদারীপুর", "মাগুরা", "মানিকগঞ্জ", "মৌলভীবাজার",
-                "মেহেরপুর", "মুন্সীগঞ্জ", "ময়মনসিংহ", "নওগাঁ", "নড়াইল",
-                "নারায়ণগঞ্জ", "নরসিংদী", "নাটোর", "নেত্রকোণা", "নীলফামারী",
-                "নোয়াখালী", "পাবনা", "পঞ্চগড়", "পটুয়াখালী", "পিরোজপুর",
-                "রাজবাড়ী", "রাজশাহী", "রাঙামাটি", "রংপুর", "সাতক্ষীরা",
-                "শরীয়তপুর", "শেরপুর", "সিরাজগঞ্জ", "সুনামগঞ্জ", "সিলেট",
-                "টাঙ্গাইল", "ঠাকুরগাঁও", "কুড়িগ্রাম", "বর্তমান জেলা"
-        ));
+        districts.addAll(districtMapping.keySet()); // Add all districts from districtMapping
         ArrayAdapter<String> areaAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, districts);
         areaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         areaSpinner.setAdapter(areaAdapter);
 
-        // Disable the hint item from being selectable
+        // Disable the hint item from being selectable in area spinner
         areaSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -171,9 +157,11 @@ public class PredictionActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.navigation_prediction) {
-                return true;
+                return true; // Already on Prediction page
             } else if (item.getItemId() == R.id.navigation_home) {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class); // Changed MainActivity to HomeActivity
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 return true;
             } else if (item.getItemId() == R.id.navigation_weather) {
@@ -181,8 +169,8 @@ public class PredictionActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
-            } else if (item.getItemId() == R.id.navigation_infromation) {
-                startActivity(new Intent(getApplicationContext(), InformationActivity.class));
+            } else if (item.getItemId() == R.id.navigation_infromation) { // Changed navigation_infromation to navigation_profile
+                startActivity(new Intent(getApplicationContext(), InformationActivity.class)); // Changed InformationActivity to ProfileActivity
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;

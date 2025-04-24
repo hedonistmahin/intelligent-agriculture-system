@@ -15,6 +15,15 @@ public interface WeatherApiService {
             @Query("lang") String lang
     );
 
+    @GET("weather")
+    Call<WeatherResponse> getWeatherByCoordinates(
+            @Query("lat") double lat,
+            @Query("lon") double lon,
+            @Query("appid") String apiKey,
+            @Query("units") String units,
+            @Query("lang") String lang
+    );
+
     @GET("air_pollution")
     Call<AirQualityResponse> getAirQuality(
             @Query("lat") double lat,

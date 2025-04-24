@@ -11,6 +11,14 @@ public class WeatherResponse {
     private Rain rain;
     private Coord coord;
 
+    public static class Weather {
+        public String icon;
+
+        public String getIcon() {
+            return icon;
+        }
+    }
+
     public Main getMain() {
         return main;
     }
