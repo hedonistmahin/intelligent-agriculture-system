@@ -6,10 +6,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.EditText;
+import android.view.inputmethod.InputMethodManager;
+import android.content.Context;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -122,6 +124,9 @@ public class PredictionActivity extends AppCompatActivity {
 
         // Set up button click listener
         btnGeneratePrediction.setOnClickListener(v -> {
+            // Hide the keyboard
+            hideKeyboard();
+
             String selectedCrop = cropSpinner.getSelectedItem().toString();
             String selectedArea = areaSpinner.getSelectedItem().toString();
             String date = etDate.getText().toString();
@@ -150,6 +155,15 @@ public class PredictionActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
+    }
+
+    // Method to hide the keyboard
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     private void setupBottomNavigation() {

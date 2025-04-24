@@ -370,7 +370,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private int[] getPosters() {
-        return new int[]{
+        return new int[] {
                 R.drawable.poster7,
                 R.drawable.poster8,
                 R.drawable.poster9,

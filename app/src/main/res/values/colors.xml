@@ -20,4 +20,5 @@
     <color name="orange">#FF9800</color>
     <color name="blue">#1976D2</color>
     <color name="teal_700">#00796B</color>
+    <color name="bottom_nav_background">#E0F7FA</color> <!-- A light cyan shade -->
 </resources>

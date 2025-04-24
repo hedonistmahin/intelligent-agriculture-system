@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Define districts_array here -->
     <string-array name="districts_array">
         <item>ঢাকা</item>
-        <item>রাজশাহী</item>
         <item>চট্টগ্রাম</item>
+        <item>রাজশাহী</item>
         <item>খুলনা</item>
         <item>বরিশাল</item>
         <item>সিলেট</item>
         <item>রংপুর</item>
-        <item>ময়মনসিংহ</item>
+        <item>ময়মনসিংহ</item>
+        <item>কুমিল্লা</item>
+        <item>নরসিংদী</item>
+        <item>গাজীপুর</item>
+        <item>ব্রাহ্মণবাড়িয়া</item>
+        <item>নোয়াখালী</item>
+        <item>ফরিদপুর</item>
+        <item>মাদারীপুর</item>
+        <item>শরীয়তপুর</item>
+        <item>দিনাজপুর</item>
+        <item>ঠাকুরগাঁও</item>
+        <item>পঞ্চগড়</item>
+        <item>ঝিনাইদহ</item>
+        <item>বাগেরহাট</item>
+        <item>কুষ্টিয়া</item>
+        <item>মেহেরপুর</item>
+        <item>সাতক্ষীরা</item>
+        <item>লক্ষ্মীপুর</item>
+        <item>চুয়াডাঙ্গা</item>
+        <item>পাবনা</item>
+        <item>ঝালকাঠি</item>
+        <item>গোপালগঞ্জ</item>
+        <item>নেত্রকোণা</item>
     </string-array>
 </resources>

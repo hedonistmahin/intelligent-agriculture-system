@@ -18,7 +18,7 @@ public class VideoActivity extends AppCompatActivity {
         videoView = findViewById(R.id.videoView);
 
         // Set up the video path (replace with the actual video URL or local path)
-        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.sample_video;
+        String videoPath = "android.resource://" + getPackageName() + "/" + R.raw.simple_raw;
         videoView.setVideoPath(videoPath);
 
         // Add media controls for video playback
